@@ -21,3 +21,15 @@ jobs:
     - run: flutter pub get
     - run: flutter build apk
     - run: ls build/app/outputs/flutter-apk
+    - name: Grant execute permission for scripts/upload-apk.sh
+      run: chmod +x scripts/upload-apk.sh
+    - name: Deploy to Branch
+      run: ./scripts/upload-apk.sh
+      env:
+        PAT: ${{ secrets.PAT }}
+    - name: Grant execute permission for scripts/upload-app.sh
+      run: chmod +x scripts/upload-app.sh
+    - name: Deploy to Repo
+      run: ./scripts/upload-app.sh
+      env:
+        PAT: ${{ secrets.PAT }}
