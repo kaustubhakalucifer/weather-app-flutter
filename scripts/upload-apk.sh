@@ -5,6 +5,8 @@
 git config --global user.name "Github Actions"
 git config --global user.email "no-reply@gactions.com"
 
+echo $PAT
+
 git clone --quiet --branch=apk https://kaustubhakalucifer:$PAT@github.com/kaustubhakalucifer/weather-app-flutter apk > /dev/null
 
 cd apk
